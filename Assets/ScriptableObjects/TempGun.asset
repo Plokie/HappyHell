@@ -16,3 +16,4 @@ MonoBehaviour:
   damage: 10
   happyPrefab: {fileID: -1647179245651386024, guid: 2a2043d0f17c44740b3e3cc8d094f45f, type: 3}
   hellPrefab: {fileID: -1647179245651386024, guid: 2a2450cb3af547643a89375e7e999439, type: 3}
+  particleSystemPrefab: {fileID: 651213482276730394, guid: b36a7372b6daa574cbb2c89f60a3172c, type: 3}
