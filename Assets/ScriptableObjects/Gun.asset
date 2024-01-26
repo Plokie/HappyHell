@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e65be5b5d8c06649b01323622b2bd53, type: 3}
-  m_Name: TempGun
+  m_Name: Gun
   m_EditorClassIdentifier: 
   spread: 25
   damage: 10
-  happyPrefab: {fileID: -1647179245651386024, guid: 2a2043d0f17c44740b3e3cc8d094f45f, type: 3}
-  hellPrefab: {fileID: -1647179245651386024, guid: 2a2450cb3af547643a89375e7e999439, type: 3}
-  particleSysHappy: {fileID: 651213482276730394, guid: bf0ea22be2e0f7a4b87b97dd4586f81f, type: 3}
-  particleSysHell: {fileID: 651213482276730394, guid: b36a7372b6daa574cbb2c89f60a3172c, type: 3}
+  happyPrefab: {fileID: 8806067102946269682, guid: 5ca32d34b0de3a147ae141b43c5327a1, type: 3}
+  hellPrefab: {fileID: -1647179245651386024, guid: d55b3895f8ec2744b9408f114dbd31c1, type: 3}
+  particleSysHappy: {fileID: 651213482276730394, guid: 48eb766304bab3043b994ca7eb9a99a5, type: 3}
+  particleSysHell: {fileID: 651213482276730394, guid: 35cb6cb1d40acf0458aaf3b765ff7140, type: 3}

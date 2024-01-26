@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour, ISwitchable
+public class Gun : MonoBehaviour
 {
     [SerializeField] GunScriptableObject currentGun;
     [SerializeField] bool isHappy = true;
 
     float ammo = 1f;
 
-    GunPrefab currentGunPrefab;
-    ParticleSystem currentParticleSystem;
+    GunPrefab currentHappyGunPrefab;
+    GunPrefab currentHellGunPrefab;
+    ParticleSystem currentHappyParticleSystem;
+    ParticleSystem currentHellParticleSystem;
 
     List<GameObject> _instantiatedObjects = new List<GameObject>();
 
@@ -21,7 +23,8 @@ public class Gun : MonoBehaviour, ISwitchable
 
     void ClearInstantiatedObjects()
     {
-        if(currentGunPrefab) Destroy(currentGunPrefab.gameObject);
+        if(currentHappyGunPrefab) Destroy(currentHappyGunPrefab.gameObject);
+        if(currentHellGunPrefab) Destroy(currentHellGunPrefab.gameObject);
 
         foreach(GameObject obj in _instantiatedObjects) {
             Destroy(obj);
@@ -37,36 +40,28 @@ public class Gun : MonoBehaviour, ISwitchable
     void Setup() {
         ClearInstantiatedObjects();
 
-        GunPrefab gunPrefab = isHappy ? currentGun.happyPrefab : currentGun.hellPrefab;
-        currentGunPrefab = Instantiate(gunPrefab, transform);
+        // GunPrefab gunPrefab = isHappy ? currentGun.happyPrefab : currentGun.hellPrefab;
+        currentHappyGunPrefab = Instantiate(currentGun.happyPrefab, transform);
+        currentHellGunPrefab = Instantiate(currentGun.hellPrefab, transform);
 
-        currentParticleSystem = Instantiate(currentGun.particleSystemPrefab, currentGunPrefab.firePoint).GetComponent<ParticleSystem>();
-    }
+        currentHappyParticleSystem = Instantiate(currentGun.particleSysHappy, currentHappyGunPrefab.firePoint).GetComponent<ParticleSystem>();
+        currentHellParticleSystem = Instantiate(currentGun.particleSysHell, currentHellGunPrefab.firePoint).GetComponent<ParticleSystem>();
 
-    public void SetHell() {
-        isHappy = false;
-        Setup();
-    }
-
-    public void SetHappy() {
-        isHappy = true;
-        Setup();
+        // layers
+        // 6 = Happy
+        // 7 = Hell
+        currentHappyGunPrefab.gameObject.SetLayerRecursively(6);
+        currentHellGunPrefab.gameObject.SetLayerRecursively(7);
     }
 
     void Fire()
     {
-        currentParticleSystem.Emit(1);
+        currentHellParticleSystem.Emit(1);
+        currentHappyParticleSystem.Emit(1);
     }
-
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            //debug
-            isHappy = !isHappy;
-            Setup();
-        }
 
         if(Input.GetKey(KeyCode.Mouse0))
         {

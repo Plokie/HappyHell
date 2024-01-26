@@ -9,5 +9,6 @@ public class GunScriptableObject : ScriptableObject
     public float damage;
     public GunPrefab happyPrefab;
     public GunPrefab hellPrefab;
-    public GameObject particleSystemPrefab;
+    public GameObject particleSysHappy;
+    public GameObject particleSysHell;
 }

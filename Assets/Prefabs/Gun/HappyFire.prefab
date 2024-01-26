@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2506351867756864779}
   - component: {fileID: 6052654382084587200}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: HappyFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,13 +42,13 @@ ParticleSystem:
   m_GameObject: {fileID: 651213482276730394}
   serializedVersion: 8
   lengthInSec: 999
-  simulationSpeed: 1.5
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -611,7 +611,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: -0.05
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1335,9 +1335,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.2028302, b: 0.2028302, a: 1}
-        key1: {r: 1, g: 0.8546114, b: 0.09019607, a: 1}
-        key2: {r: 1, g: 0.5642336, b: 0, a: 0}
+        key0: {r: 0.8478503, g: 0.20392156, b: 1, a: 1}
+        key1: {r: 0.09019607, g: 1, b: 0.665747, a: 1}
+        key2: {r: 0, g: 0.6218536, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1365,9 +1365,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.8595527, b: 0.3537736, a: 1}
-        key1: {r: 1, g: 0.18353048, b: 0, a: 1}
-        key2: {r: 0.8584906, g: 0.3374532, b: 0.10123708, a: 0}
+        key0: {r: 0.619544, g: 0.35294116, b: 1, a: 1}
+        key1: {r: 0, g: 0.8993242, b: 1, a: 1}
+        key2: {r: 0.101960756, g: 0.85882354, b: 0.29894772, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -3961,7 +3961,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -4814,7 +4814,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
