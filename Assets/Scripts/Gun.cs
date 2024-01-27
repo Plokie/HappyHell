@@ -87,6 +87,8 @@ public class Gun : MonoBehaviour
 
             if(angleDot < currentGun.spreadRange) {
                 print("Shot " + shootableObj.name);
+
+                
             }
         }
     }

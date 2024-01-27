@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class MicrophoneManager : MonoBehaviour
 {
+    public static MicrophoneManager Instance { get; private set; }
+    void Awake() {
+        if(Instance != null) {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
+
+
     [SerializeField] Image micActivityImage;
     [SerializeField] Color micActiveColor;
     [SerializeField] Color micInactiveColor;
