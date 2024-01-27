@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MicrophoneManager : MonoBehaviour
 {
-
     public float laughCutoff = 0.1f;
 
     AudioClip mainClip;
