@@ -10,7 +10,7 @@ public class NPC : MonoBehaviour, IShootable
     public Slider healthBar, happyBar;
     public bool Alive = true;
 
-    int Health = 100;
+    float Health = 100;
 
     void IShootable.BeingShot()
     {
@@ -36,6 +36,11 @@ public class NPC : MonoBehaviour, IShootable
 
         healthBar.value = Health;
         happyBar.value = Health;
+
+        if (Health <= 0)
+        {
+            Alive = false;
+        }
 
     }
 }

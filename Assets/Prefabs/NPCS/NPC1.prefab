@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Direction: 1
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
@@ -722,8 +722,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcHappy: {fileID: 5033582966816255997}
   npcHell: {fileID: 6945973579457829188}
+  healthBar: {fileID: 4177849209414992443}
+  happyBar: {fileID: 8851303644173561977}
   Alive: 1
-  Health: 100
 --- !u!1 &2071081539423204494
 GameObject:
   m_ObjectHideFlags: 0
