@@ -14,7 +14,9 @@ public class NPC : MonoBehaviour, IShootable
 
     void IShootable.BeingShot()
     {
-        
+
+       Health -= 5 * (MicrophoneManager.Instance.isLaughing?2f:1f) * Time.deltaTime;
+
     }
 
     void IShootable.StartShot()
