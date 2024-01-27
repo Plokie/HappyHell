@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] GunScriptableObject currentGun;
-    [SerializeField] bool isHappy = true;
 
     float ammo = 1f;
 

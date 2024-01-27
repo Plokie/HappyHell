@@ -11,13 +11,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
         
-    [SerializeField, Range(0, 10)]
+    [SerializeField, SaveDuringPlay]
     private float playerSpeed = 5.0f;
 
-    [SerializeField, Range(0, 20)]
+    [SerializeField, SaveDuringPlay]
     private float jumpHeight = 5.0f;
     
-    [SerializeField, Range(-20, 0)]
+    [SerializeField, SaveDuringPlay]
     private float gravityValue = -9.81f;
 
 
