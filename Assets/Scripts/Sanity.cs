@@ -7,6 +7,8 @@ public class Sanity : MonoBehaviour
 {
     bool hasBeenSaneForFirstTime = false;
 
+    bool debugDisableMicrophone = true;
+
     float _value = 1f; // 0.0 to 1.0
     public float Value { 
         get {
@@ -43,7 +45,7 @@ public class Sanity : MonoBehaviour
     void Update() {
         Value -= Time.deltaTime * drainSpeed;
 
-        if(micMgr.isLaughing && hasBeenSaneForFirstTime) {
+        if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
             Value += Time.deltaTime * laughRecoverySpeed;
         }
 
