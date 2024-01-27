@@ -29,25 +29,29 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.transform.rotation = new Quaternion(gameObject.transform.rotation.x, cameraTransform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
 
-        print(groundedPlayer);
+        //print(playerVelocity.y);
+        //print(groundedPlayer);
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer)
         {
-            playerVelocity.y = -controller.stepOffset / Time.deltaTime;
+            playerVelocity.y = -2f;
         }
 
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-        float curSpeed = playerSpeed * Input.GetAxis("Vertical");
-        controller.SimpleMove(forward * curSpeed);
+        Vector3 side = transform.TransformDirection(Vector3.left);
+        float fwdSpeed = playerSpeed * Input.GetAxis("Vertical");
+        float sdeSpeed = playerSpeed * Input.GetAxis("Horizontal");
+        controller.SimpleMove((forward * fwdSpeed) + -(side * sdeSpeed));
 
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y = jumpHeight;
         }
-        else{
-            playerVelocity.y += gravityValue * Time.deltaTime;
-        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        
 
         
         controller.Move(playerVelocity * Time.deltaTime);
