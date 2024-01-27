@@ -34,7 +34,7 @@ public class SceneSwitch : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.L)) {
-            forceHellCount = 5;
+            forceHellCount = 8;
         }
 
 
@@ -45,5 +45,9 @@ public class SceneSwitch : MonoBehaviour
 
             forceHellCount--;
         }
+    }
+
+    void OnValidate() {
+        SetRT();
     }
 }
