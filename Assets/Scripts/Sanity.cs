@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Sanity : MonoBehaviour
 {
-
+    bool hasBeenSaneForFirstTime = false;
 
     float _value = 1f; // 0.0 to 1.0
     public float Value { 
@@ -21,6 +21,7 @@ public class Sanity : MonoBehaviour
     float _prevSanity = 1f;
 
     [Header("References")]
+    [SerializeField] GameObject visiblityParent;
     [SerializeField] Slider slider;
     [SerializeField] Image redBg;
     [SerializeField] MicrophoneManager micMgr;
@@ -42,26 +43,30 @@ public class Sanity : MonoBehaviour
     void Update() {
         Value -= Time.deltaTime * drainSpeed;
 
-        if(micMgr.isLaughing) {
+        if(micMgr.isLaughing && hasBeenSaneForFirstTime) {
             Value += Time.deltaTime * laughRecoverySpeed;
         }
 
 
-        if(_prevSanity > 0.7f && Value < 0.7f) { // force a flash at the 0.7f mark
+        if(_prevSanity > 0.8f && Value < 0.8f) { // force a flash at the 0.7f mark
             sceneSwitch.FlashHellForTime(0.05f);
-            print("cross 0.7f");
+            print("cross 0.8f");
         }
 
         sceneSwitch.IsHappy = Value > 0.5f;
+
+        if(!sceneSwitch.IsHappy && !hasBeenSaneForFirstTime) {
+            hasBeenSaneForFirstTime=true;
+            visiblityParent.SetActive(true);
+        }
 
 
         _prevSanity = Value;
     }
 
     void FixedUpdate() {
-        if(Value < 0.67f && Value > 0.5f) {
-            if(Random.Range(0, maxRandFlashChance) == 0) {
-                print("flash hell");
+        if(Value < 0.66f && Value > 0.5f) {
+            if(Random.Range(0, maxRandFlashChance / ((Value < 0.53f)?10:1)) == 0) {
                 sceneSwitch.FlashHellForTime(0.05f);
             }
         }

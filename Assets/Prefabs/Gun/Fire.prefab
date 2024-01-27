@@ -1023,7 +1023,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0.3997925
+          value: 0
           inSlope: 0.11068395
           outSlope: 0.11068395
           tangentMode: 0
@@ -2438,7 +2438,8 @@ ParticleSystem:
     influenceMask:
       serializedVersion: 2
       m_Bits: 4294967295
-    influenceList: []
+    influenceList:
+    - {fileID: 0}
   ClampVelocityModule:
     enabled: 0
     x:

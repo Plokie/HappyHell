@@ -58,6 +58,11 @@ public class Gun : MonoBehaviour
     {
         currentHellParticleSystem.Emit(1);
         currentHappyParticleSystem.Emit(1);
+
+        ParticleSystem[] particleChildren = currentHappyParticleSystem.GetComponentsInChildren<ParticleSystem>();
+        foreach(ParticleSystem sys in particleChildren) {
+            sys.Emit(1);
+        }
     }
 
     void Update()
