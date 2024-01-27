@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Gun", order = 1)]
 public class GunScriptableObject : ScriptableObject
 {
-    public float spread;
+    public float spreadRange;
     public float damage;
     public GunPrefab happyPrefab;
     public GunPrefab hellPrefab;
