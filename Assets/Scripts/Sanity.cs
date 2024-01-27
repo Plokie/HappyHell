@@ -7,7 +7,8 @@ public class Sanity : MonoBehaviour
 {
     bool hasBeenSaneForFirstTime = false;
 
-    bool debugDisableMicrophone = true;
+    bool debugDisableMicrophone = false;
+    bool debugDontDeplete = false;
 
     float _value = 1f; // 0.0 to 1.0
     public float Value { 
@@ -43,6 +44,8 @@ public class Sanity : MonoBehaviour
 
 
     void Update() {
+        if(debugDontDeplete) return;
+        
         Value -= Time.deltaTime * drainSpeed;
 
         if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
