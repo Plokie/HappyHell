@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7895825823771690407}
+  cameraTransform: {fileID: 0}
   playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81
