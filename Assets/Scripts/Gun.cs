@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] GunScriptableObject currentGun;
+    [SerializeField] MicrophoneManager micMgr;
 
     float ammo = 1f;
 
@@ -67,7 +68,7 @@ public class Gun : MonoBehaviour
             Fire();
         }
 
-
+        // print(micMgr.CheckForLaugh());
         
     }
 }
