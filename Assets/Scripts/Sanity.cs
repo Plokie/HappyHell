@@ -7,8 +7,8 @@ public class Sanity : MonoBehaviour
 {
     bool hasBeenSaneForFirstTime = false;
 
-    bool debugDisableMicrophone = false;
-    bool debugDontDeplete = false;
+    [SerializeField] bool debugDisableMicrophone = false;
+    [SerializeField] bool debugDontDeplete = false;
 
     float _value = 1f; // 0.0 to 1.0
     public float Value { 
