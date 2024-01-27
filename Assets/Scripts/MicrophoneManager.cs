@@ -44,6 +44,13 @@ public class MicrophoneManager : MonoBehaviour
 
     public bool CheckForLaugh()
     {
+        #if UNITY_EDITOR
+        if(Input.GetKey(KeyCode.K)) {
+            return true;
+        }
+        #endif
+
+
         if (isSynced)
         {
             bool laughed = false;

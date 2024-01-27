@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour
             Fire();
         }
 
-        print(micMgr.CheckForLaugh());
+        // print(micMgr.CheckForLaugh());
         
     }
 }

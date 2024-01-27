@@ -9,11 +9,22 @@ public class SceneSwitch : MonoBehaviour
     [SerializeField] RenderTexture happyRT;
     [SerializeField] RenderTexture hellRT;
 
-    public bool isHappy = true;
-    int forceHellCount = 0;
+
+    [SerializeField] bool _isHappy = true;
+    public bool IsHappy {
+        get {
+            return _isHappy;
+        }
+        set {
+            _isHappy = value;
+            SetRT();
+        }
+    }
+    // int forceHellCount = 0;
+    float forceHellTimer = 0.0f;
 
     void SetRT(bool? forceHappy = null) {
-        RenderTexture currentRT = isHappy ? happyRT : hellRT;
+        RenderTexture currentRT = IsHappy ? happyRT : hellRT;
 
         if(forceHappy.HasValue) {
             currentRT = forceHappy.Value ? happyRT : hellRT;
@@ -22,28 +33,38 @@ public class SceneSwitch : MonoBehaviour
         rawImageTarget.texture = currentRT;
     }
 
-    public void FlashHellForFrames(int frameCount) {
-        forceHellCount = frameCount;
+    // public void FlashHellForFrames(int frameCount) {
+    //     forceHellCount = frameCount;
+    // }
+
+    public void FlashHellForTime(float time) {
+        forceHellTimer = time;
     }
 
     void LateUpdate() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            isHappy = !isHappy;
+            IsHappy = !IsHappy;
 
             SetRT();
         }
 
-        if(Input.GetKeyDown(KeyCode.L)) {
-            forceHellCount = 8;
-        }
+        // if(Input.GetKeyDown(KeyCode.L)) {
+        //     forceHellCount = 8;
+        // }
 
 
 
         //Leave at end
-        if(forceHellCount>=0) {
-            SetRT(forceHellCount==0); //if its the last frame of forced hell frames, set back to happy
+        // if(forceHellCount>=0) {
+        //     SetRT(forceHellCount==0); //if its the last frame of forced hell frames, set back to happy
 
-            forceHellCount--;
+        //     forceHellCount--;
+        // }
+
+        if(forceHellTimer > 0.0f) {
+            SetRT(false);
+
+            forceHellTimer -= Time.deltaTime;
         }
     }
 
