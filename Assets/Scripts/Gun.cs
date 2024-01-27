@@ -16,6 +16,9 @@ public class Gun : MonoBehaviour
 
     List<GameObject> _instantiatedObjects = new List<GameObject>();
 
+
+    List<GameObject> _shootableObjects = new List<GameObject>(); //bad but its a game jam so who cares
+
     public void SetGun(GunScriptableObject newGun) {
         currentGun = newGun;
         Setup();
@@ -35,6 +38,16 @@ public class Gun : MonoBehaviour
     void Start()
     {
         Setup();
+
+        // slow and bad but again, is a game jam, should be fine
+        // plus its only on start
+        foreach(Transform objTransform in GameObject.FindObjectOfType<Transform>()) {
+            
+            IShootable iShootable = objTransform.GetComponent<IShootable>();
+            if(iShootable!=null) {
+                _shootableObjects.Add(objTransform.gameObject);
+            }
+        }
     }
 
     void Setup() {
@@ -62,6 +75,19 @@ public class Gun : MonoBehaviour
         ParticleSystem[] particleChildren = currentHappyParticleSystem.GetComponentsInChildren<ParticleSystem>();
         foreach(ParticleSystem sys in particleChildren) {
             sys.Emit(1);
+        }
+
+
+        Vector3 fireDir = transform.forward;
+        foreach(GameObject shootableObj in _shootableObjects) {
+            Vector3 targetDir = (shootableObj.transform.position - currentHellGunPrefab.firePoint.position).normalized;
+
+            float dot = Vector3.Dot(fireDir, targetDir);
+            float angleDot = 1f - Mathf.Clamp01(dot);
+
+            if(angleDot < currentGun.spreadRange) {
+                print("Shot " + shootableObj.name);
+            }
         }
     }
 
