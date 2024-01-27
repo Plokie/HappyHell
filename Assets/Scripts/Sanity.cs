@@ -42,7 +42,7 @@ public class Sanity : MonoBehaviour
     void Update() {
         Value -= Time.deltaTime * drainSpeed;
 
-        if(micMgr.CheckForLaugh()) {
+        if(micMgr.isLaughing) {
             Value += Time.deltaTime * laughRecoverySpeed;
         }
 

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MicrophoneManager : MonoBehaviour
 {
+    [SerializeField] Image micActivityImage;
+    [SerializeField] Color micActiveColor;
+    [SerializeField] Color micInactiveColor;
     public float laughCutoff = 0.1f;
 
     AudioClip mainClip;
@@ -11,6 +15,8 @@ public class MicrophoneManager : MonoBehaviour
     string deviceName;
     int deviceSampleRate;
     bool isSynced = false;
+
+    [HideInInspector] public bool isLaughing;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +48,13 @@ public class MicrophoneManager : MonoBehaviour
         
     }
 
-    public bool CheckForLaugh()
+    void Update() {
+        isLaughing = CheckForLaugh();
+
+        micActivityImage.color = isLaughing ? micActiveColor : micInactiveColor;
+    }
+
+    bool CheckForLaugh()
     {
         #if UNITY_EDITOR
         if(Input.GetKey(KeyCode.K)) {
