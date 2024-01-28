@@ -117,7 +117,7 @@ public class Sanity : MonoBehaviour
             print("cross 0.8f");
         }
 
-        if (_prevSanity > 0.2f && Value < 0.2f)
+        if (_prevSanity > 0.3f && Value < 0.3f)
         { // force a flash at the 0.7f mark
             Objective.AddObjective("nearestnpc", "Nearest person", typeof(NPC), () =>
             {
