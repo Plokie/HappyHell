@@ -102,8 +102,7 @@ public class IntroScreen : MonoBehaviour
                 }
 
                 break;
-            case IntroState.MicCalibration:
-
+            case IntroState.MicCalibration:              
                 
 
                 calValue = Calibrate(currentDevice);
