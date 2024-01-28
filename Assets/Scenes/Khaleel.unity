@@ -13385,6 +13385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d488aa4629ac3043b8c83f7a8b7a9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerPrefab: {fileID: 0}
 --- !u!1001 &1144844028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24766,6 +24767,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5682677975211087979, guid: 345a5f713cf775042a6833e59f2f4e3f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.65
+      objectReference: {fileID: 0}
     - target: {fileID: 7094103526857745451, guid: 345a5f713cf775042a6833e59f2f4e3f, type: 3}
       propertyPath: m_Name
       value: CanisterPickup
