@@ -23509,7 +23509,7 @@ MonoBehaviour:
   happyCounter: {fileID: 939242159}
   redBg: {fileID: 560852383}
   sceneSwitch: {fileID: 1771637532}
-  drainSpeed: 0.01
+  drainSpeed: 0.025
   maxRandFlashChance: 100
 --- !u!1 &1900708069
 GameObject:
