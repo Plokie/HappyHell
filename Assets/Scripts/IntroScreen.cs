@@ -150,7 +150,7 @@ public class IntroScreen : MonoBehaviour
                     PlayerPrefs.SetFloat("LaughCutoff", loudestVolume);
                     PlayerPrefs.SetInt("DeviceIndex", micChoice.value);
 
-                    SceneManager.LoadScene("Lara");
+                    SceneManager.LoadScene("Title");
                 }
 
                 break;
