@@ -21,12 +21,12 @@ public class CanisterPickup : MonoBehaviour, IPickup
         modelTransform.gameObject.SetActive(Sanity.Instance.IsSane);
     }
     void IPickup.OnPickup() {
-        if(gun.Ammo <= 0.0f) {
+        //if(gun.Ammo <= 0.0f) {
             print("Pickup canister");
             Destroy(gameObject);
 
             gun.ReplenishAmmo();
-        }
+        //}
 
     }
 }

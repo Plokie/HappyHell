@@ -7,7 +7,7 @@ using UnityEngine;
 
 public enum ObjectiveType
 {
-    None, NearestObjectOfType
+    None, NearestObjectOfType, MeetQuery
 }
 
 public class ObjectiveQuest
@@ -38,6 +38,16 @@ public class ObjectiveQuest
         this.id = id;
         this.objectiveType = ObjectiveType.NearestObjectOfType;
         this.typeArg = typeArg;
+        this.isCompletedQuery = isCompletedQuery;
+    }
+
+    public ObjectiveQuest(string id, string text, Func<bool> isCompletedQuery)
+    {
+        this.targetTransform = null;
+        this.targetPosition = Vector3.zero;
+        this.text = text;
+        this.id = id;
+        this.objectiveType = ObjectiveType.MeetQuery;
         this.isCompletedQuery = isCompletedQuery;
     }
 
@@ -78,6 +88,12 @@ public class Objective : MonoBehaviour
         Instance.currentQuests.Add(newObjective);
         return newObjective;
     }
+    public static ObjectiveQuest AddObjective(string id, string text, System.Func<bool> isCompletedQuery)
+    {
+        ObjectiveQuest newObjective = new ObjectiveQuest(id, text, isCompletedQuery);
+        Instance.currentQuests.Add(newObjective);
+        return newObjective;
+    }
 
     public static ObjectiveQuest AddObjective(string id, string text, Vector3 target, System.Func<bool> isCompletedQuery)
     {
@@ -95,6 +111,13 @@ public class Objective : MonoBehaviour
 
     public static ObjectiveQuest QueueObjective(string id, string text, Transform target, System.Func<bool> isCompletedQuery) {
         ObjectiveQuest newObjective = new ObjectiveQuest(id, target, text, isCompletedQuery);
+        Instance.queuedQuests.Add(newObjective);
+        return newObjective;
+    }
+
+    public static ObjectiveQuest QueueObjective(string id, string text, System.Func<bool> isCompletedQuery)
+    {
+        ObjectiveQuest newObjective = new ObjectiveQuest(id, text, isCompletedQuery);
         Instance.queuedQuests.Add(newObjective);
         return newObjective;
     }
@@ -126,7 +149,7 @@ public class Objective : MonoBehaviour
         
         foreach(ObjectiveQuest quest in Instance.currentQuests)
         {
-            if(quest.instantiatedPointer==null)
+            if(quest.instantiatedPointer==null && quest.objectiveType != ObjectiveType.MeetQuery)
             {
                 //Instantiate the pointer ui
             }
