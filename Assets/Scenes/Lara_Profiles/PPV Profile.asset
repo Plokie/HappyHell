@@ -1362,7 +1362,7 @@ MonoBehaviour:
     value: 0.8
   edgeColor:
     overrideState: 1
-    value: {r: 1, g: 0.75, b: 0.8231523, a: 1}
+    value: {r: 1, g: 0.7490196, b: 0.8235294, a: 1}
   backgroundColor:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}

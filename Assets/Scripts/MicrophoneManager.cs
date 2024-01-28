@@ -33,7 +33,9 @@ public class MicrophoneManager : MonoBehaviour
         int deviceSampleRateMin;
         int deviceSampleRateMax;
 
-        deviceName = Microphone.devices[0]; // Using this for now, could try to let the player choose the microphone if we have time
+        laughCutoff = PlayerPrefs.GetFloat("LaughCutoff", 0.1f);
+
+        deviceName = Microphone.devices[PlayerPrefs.GetInt("DeviceIndex", 0)];
         Microphone.GetDeviceCaps(deviceName, out deviceSampleRateMin, out deviceSampleRateMax);
         Debug.Log(deviceName + "  " + deviceSampleRateMin.ToString()  + "  " + deviceSampleRateMax.ToString()); // Print out info
 
