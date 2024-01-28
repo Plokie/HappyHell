@@ -149,7 +149,7 @@ public class Objective : MonoBehaviour
             queuedQuests.RemoveAt(0);
         }
         
-        foreach(ObjectiveQuest quest in Instance.currentQuests)
+        foreach(ObjectiveQuest quest in Instance.currentQuests.ToArray())
         {
             if(quest.instantiatedPointer==null && quest.objectiveType != ObjectiveType.MeetQuery)
             {
