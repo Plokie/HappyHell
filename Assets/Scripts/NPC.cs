@@ -49,6 +49,8 @@ public class NPC : MonoBehaviour, IShootable
                 npcHappy.SetBool("Alive", false);
                 npcHell.SetBool("Alive", false);
                 Sanity.Instance.RegisterKill();
+                //healthBar.gameObject.gameObject.SetActive(false);
+                //happyBar.gameObject.SetActive(false);
             }
         }
 
