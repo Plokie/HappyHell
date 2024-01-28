@@ -20786,11 +20786,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugDisableMicrophone: 1
-  debugDontDeplete: 1
+  debugDontDeplete: 0
   visiblityParent: {fileID: 692748835}
   slider: {fileID: 506273397}
   redBg: {fileID: 560852383}
-  micMgr: {fileID: 836823209}
   sceneSwitch: {fileID: 1771637532}
   laughRecoverySpeed: 0.35
   drainSpeed: 0.01

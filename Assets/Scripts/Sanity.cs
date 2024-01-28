@@ -86,4 +86,10 @@ public class Sanity : MonoBehaviour
         }
 
     }
+
+    public void RegisterKill() {
+        if(!hasBeenSaneForFirstTime) return; // Only start increasing if the player has seen hell already
+
+        Value += 0.35f;
+    }
 }

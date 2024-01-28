@@ -33,18 +33,23 @@ public class NPC : MonoBehaviour, IShootable
     void Update()
     {
         if (!Alive){
-            npcHappy.SetBool("Alive", false);
-            npcHell.SetBool("Alive", false);
+
+        }
+        else {
+            healthBar.value = Health;
+            happyBar.value = Health;
+
+            if (Health <= 0)
+            {
+                // on death
+                Alive = false;
+                coll.enabled=false;
+                npcHappy.SetBool("Alive", false);
+                npcHell.SetBool("Alive", false);
+                Sanity.Instance.RegisterKill();
+            }
         }
 
-        healthBar.value = Health;
-        happyBar.value = Health;
-
-        if (Health <= 0)
-        {
-            Alive = false;
-            coll.enabled=false;
-        }
 
     }
 }
