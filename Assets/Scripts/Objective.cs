@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -112,6 +113,10 @@ public class Objective : MonoBehaviour
         return newObjective;
     }
 
+    private void Start()
+    {
+        
+    }
 
     void Update() {
         if(currentQuests.Count == 0 && queuedQuests.Count > 0) {
@@ -141,6 +146,19 @@ public class Objective : MonoBehaviour
                     case ObjectiveType.None: targetPosition = (quest.targetTransform == null) ? quest.targetPosition : quest.targetTransform.position; break;
                     case ObjectiveType.NearestObjectOfType:
 
+                        float nearestDist = Mathf.Infinity;
+                        UnityEngine.Object nearestObj = null;
+
+                        var arr = GameObject.FindObjectsOfType(quest.typeArg); //slow and bad but MEH game jam innit
+                        foreach (var obj in arr) {
+                            Transform objTransform = obj.GetComponent<Transform>();
+                            if (objTransform != null)
+                            {
+                                float dist = Vector3.Distance(objTransform.position, )
+
+                            }
+
+                        }
 
                         break;
                 }
