@@ -136,9 +136,11 @@ public class Objective : MonoBehaviour
         return newObjective;
     }
 
+    Transform playerCam;
+
     private void Start()
     {
-        
+        playerCam = GameObject.FindGameObjectWithTag("PlayerCamTransform").transform;
     }
 
     void Update() {
@@ -160,31 +162,39 @@ public class Objective : MonoBehaviour
                 //Destroy the pointer ui
                 Instance.currentQuests.Remove(quest);
             }
-            else
+            else if(quest.objectiveType != ObjectiveType.MeetQuery)
             {
                 Vector3 targetPosition = Vector3.zero;
                 
                 switch(quest.objectiveType)
                 {
-                    case ObjectiveType.None: targetPosition = (quest.targetTransform == null) ? quest.targetPosition : quest.targetTransform.position; break;
+                    case ObjectiveType.None:
+                        targetPosition = (quest.targetTransform == null) ? quest.targetPosition : quest.targetTransform.position; 
+                    break;
                     case ObjectiveType.NearestObjectOfType:
 
                         float nearestDist = Mathf.Infinity;
-                        UnityEngine.Object nearestObj = null;
+                        GameObject nearestObj = null;
 
                         var arr = GameObject.FindObjectsOfType(quest.typeArg); //slow and bad but MEH game jam innit
                         foreach (var obj in arr) {
                             Transform objTransform = obj.GetComponent<Transform>();
                             if (objTransform != null)
                             {
-                                //float dist = Vector3.Distance(objTransform.position, )
-
+                                float dist = Vector3.Distance(objTransform.position, playerCam.position);
+                                if(dist < nearestDist) {
+                                    nearestDist = dist;
+                                    nearestObj = objTransform.gameObject;
+                                }
                             }
-
                         }
 
-                        break;
+                        targetPosition = nearestObj.transform.position;
+
+                    break;
                 }
+
+
                 
             }
         }
