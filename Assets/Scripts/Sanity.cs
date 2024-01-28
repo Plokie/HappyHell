@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class Sanity : MonoBehaviour
 {
+    public static Sanity Instance;
+    void Awake() {
+        if(Instance){
+            Destroy(this);
+        }
+        else {
+            Instance=this;
+        }
+    }
+
     bool hasBeenSaneForFirstTime = false;
 
     [SerializeField] bool debugDisableMicrophone = false;
@@ -27,7 +37,6 @@ public class Sanity : MonoBehaviour
     [SerializeField] GameObject visiblityParent;
     [SerializeField] Slider slider;
     [SerializeField] Image redBg;
-    [SerializeField] MicrophoneManager micMgr;
     [SerializeField] SceneSwitch sceneSwitch;
     [Header("Settings / Values")]
     [SerializeField] float laughRecoverySpeed = 0.35f;
@@ -48,9 +57,9 @@ public class Sanity : MonoBehaviour
         
         Value -= Time.deltaTime * drainSpeed;
 
-        if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
-            Value += Time.deltaTime * laughRecoverySpeed;
-        }
+        // if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
+        //     Value += Time.deltaTime * laughRecoverySpeed;
+        // }
 
 
         if(_prevSanity > 0.8f && Value < 0.8f) { // force a flash at the 0.7f mark
