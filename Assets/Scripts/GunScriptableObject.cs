@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunScriptableObject : ScriptableObject
 {
     public float spreadRange;
+    public float range = 10f;
     public float damage;
     public GunPrefab happyPrefab;
     public GunPrefab hellPrefab;

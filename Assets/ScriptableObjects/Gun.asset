@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e65be5b5d8c06649b01323622b2bd53, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  spread: 25
+  spreadRange: 0.0875
+  range: 16
   damage: 10
   happyPrefab: {fileID: 8806067102946269682, guid: 5ca32d34b0de3a147ae141b43c5327a1, type: 3}
   hellPrefab: {fileID: -1647179245651386024, guid: d55b3895f8ec2744b9408f114dbd31c1, type: 3}
