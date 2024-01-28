@@ -10,13 +10,15 @@ public class NPC : MonoBehaviour, IShootable
     public Slider healthBar, happyBar;
     public bool Alive = true;
     Collider coll;
+    [SerializeField] float baseDamage = 5f;
+    [SerializeField] float laughingMultiplier = 5f;
 
     float Health = 100;
 
     void IShootable.BeingShot()
     {
 
-       Health -= 5 * (MicrophoneManager.Instance.isLaughing?2f:1f) * Time.deltaTime;
+       Health -= baseDamage * (MicrophoneManager.Instance.isLaughing?laughingMultiplier:1f) * Time.deltaTime;
 
     }
 

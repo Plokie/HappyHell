@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Sanity : MonoBehaviour
 {
@@ -33,9 +34,24 @@ public class Sanity : MonoBehaviour
     }
     float _prevSanity = 1f;
 
+    int _happyTasksComplete = 0;
+    public int HappyTasksComplete {
+        get {
+            return _happyTasksComplete;
+        }
+        private set {
+            _happyTasksComplete = value;
+
+            happyCounter.text = _happyTasksComplete.ToString();
+
+            // update counter
+        }
+    }
+
     [Header("References")]
     [SerializeField] GameObject visiblityParent;
     [SerializeField] Slider slider;
+    [SerializeField] TMP_Text happyCounter;
     [SerializeField] Image redBg;
     [SerializeField] SceneSwitch sceneSwitch;
     [Header("Settings / Values")]
@@ -90,6 +106,8 @@ public class Sanity : MonoBehaviour
     public void RegisterKill() {
         if(!hasBeenSaneForFirstTime) return; // Only start increasing if the player has seen hell already
 
-        Value += 0.35f;
+        // Value += 0.4f;
+        Value = 1f;
+        HappyTasksComplete++;
     }
 }
