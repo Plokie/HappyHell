@@ -29,7 +29,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.rotation = new Quaternion(gameObject.transform.rotation.x, cameraTransform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
+
+        float yRotation = cameraTransform.eulerAngles.y;
+        yRotation = Mathf.Repeat(yRotation + 180f, 360f) - 180f; // Wrap yRotation between -180 and 180
+
+        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles.x, yRotation, gameObject.transform.rotation.eulerAngles.z);
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer)
