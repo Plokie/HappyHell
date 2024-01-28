@@ -59,6 +59,8 @@ MonoBehaviour:
     id: 
     instantiatedPointer: {fileID: 0}
     isComplete: 0
+  pointerPivot: {fileID: 6199938231518034922}
+  questText: {fileID: 2840498404137994110}
 --- !u!1 &1519551412965892299
 GameObject:
   m_ObjectHideFlags: 0

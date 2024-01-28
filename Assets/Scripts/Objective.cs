@@ -17,7 +17,7 @@ public class ObjectiveQuest
     public Vector3 targetPosition;
     public string text;
     public string id;
-    public GameObject instantiatedPointer = null;
+    public ObjectivePointer instantiatedPointer = null;
     public bool isComplete = false;
 
     public Type typeArg;
@@ -147,7 +147,9 @@ public class Objective : MonoBehaviour
 
     void CreateObjectivePointer(ObjectiveQuest quest)
     {
-        quest.instantiatedPointer = Instantiate(pointerPrefab, transform).gameObject;
+        quest.instantiatedPointer = Instantiate(pointerPrefab, transform);
+        quest.instantiatedPointer.myQuest = quest;
+
     }
 
 
@@ -159,7 +161,7 @@ public class Objective : MonoBehaviour
         
         foreach(ObjectiveQuest quest in Instance.currentQuests.ToArray())
         {
-            if(quest.instantiatedPointer==null && quest.objectiveType != ObjectiveType.MeetQuery)
+            if(quest.instantiatedPointer==null)
             {
                 //Instantiate the pointer ui
                 CreateObjectivePointer(quest);
@@ -169,7 +171,7 @@ public class Objective : MonoBehaviour
             if(quest.isCompletedQuery())
             {
                 //Destroy the pointer ui
-                Destroy(quest.instantiatedPointer);
+                if(quest.instantiatedPointer) Destroy(quest.instantiatedPointer.gameObject);
                 Instance.currentQuests.Remove(quest);
             }
             else if(quest.objectiveType != ObjectiveType.MeetQuery)
