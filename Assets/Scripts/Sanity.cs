@@ -102,12 +102,12 @@ public class Sanity : MonoBehaviour
     }
 
     public void RegisterKill() {
-        if(!hasBeenSaneForFirstTime) return; // Only start increasing if the player has seen hell already
+        HappyTasksComplete++;
 
-        print("Register kill");
+
+        if(!hasBeenSaneForFirstTime) return; // Only start increasing if the player has seen hell already
 
         // Value += 0.4f;
         Value = 1f;
-        HappyTasksComplete++;
     }
 }
