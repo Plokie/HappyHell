@@ -46,6 +46,14 @@ public class Sanity : MonoBehaviour
         }
     }
 
+
+    public bool IsSane {
+        get {
+            return Value <= 0.5f;
+        }
+        private set {}
+    }
+
     [Header("References")]
     [SerializeField] GameObject visiblityParent;
     [SerializeField] Slider slider;
@@ -56,6 +64,11 @@ public class Sanity : MonoBehaviour
     // [SerializeField] float laughRecoverySpeed = 0.35f;
     [SerializeField] float drainSpeed = 0.01f;
     [SerializeField] int maxRandFlashChance = 150;
+    Gun gun;
+
+    void Start() {
+        gun = GameObject.FindGameObjectWithTag("PlayerCamTransform").GetComponentInChildren<Gun>();
+    }
 
     void UpdateUI() {
         slider.value = _value;
@@ -69,7 +82,7 @@ public class Sanity : MonoBehaviour
     void Update() {
         if(debugDontDeplete) return;
         
-        Value -= Time.deltaTime * drainSpeed * ((Value<0.5f)?0.5f:1f);
+        Value -= Time.deltaTime * drainSpeed * ((Value<0.5f)?0.5f:1f) * ((gun.Ammo<=0.0f&&Value>0.5f)?30f:1f);
 
         // if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
         //     Value += Time.deltaTime * laughRecoverySpeed;

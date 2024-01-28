@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -8,7 +9,19 @@ public class Gun : MonoBehaviour
     [SerializeField] MicrophoneManager micMgr;
     [SerializeField] Transform playerLook;
 
-    float ammo = 1f;
+    float _ammo = 1f;
+    public float Ammo {
+        get {
+            return _ammo;
+        }
+        private set {
+            _ammo = Mathf.Clamp01(value);
+
+            ammoSlider.value = value;
+        }
+    }
+    [SerializeField] float ammoDepletionRate = 0.01f;
+    [SerializeField] Slider ammoSlider; 
 
     GunPrefab currentHappyGunPrefab;
     GunPrefab currentHellGunPrefab;
@@ -64,6 +77,8 @@ public class Gun : MonoBehaviour
         foreach(ParticleSystem sys in particleChildren) {
             sys.Emit(1);
         }
+
+        Ammo -= ammoDepletionRate * Time.fixedDeltaTime;
     }
 
     void FixedUpdate()
@@ -84,10 +99,13 @@ public class Gun : MonoBehaviour
         currentHellParticleSystem.transform.forward = targetDir;
         currentHappyParticleSystem.transform.forward = targetDir;
 
-        if(Input.GetKey(KeyCode.Mouse0))
-        {
+        if(Input.GetKey(KeyCode.Mouse0) && Ammo > 0f) {
             Fire();
         }
         
+    }
+
+    public void ReplenishAmmo() {
+        Ammo = 1f;
     }
 }
