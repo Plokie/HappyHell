@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroScreen : MonoBehaviour
@@ -16,11 +17,12 @@ public class IntroScreen : MonoBehaviour
     public TextMeshProUGUI header;
     public TextMeshProUGUI footer;
 
+    public Image micTest;
+
     IntroState state;
 
     string[] devices;
     string currentDevice;
-    float micVol;
     int deviceSampleRate;
     AudioClip mainClip;
 
@@ -32,13 +34,15 @@ public class IntroScreen : MonoBehaviour
         Epilepsy,
         MicChoice,
         MicCalibration,
-        TitleScreen
+        MicTest,
+        NoMic
     }
 
     // Start is called before the first frame update
     void Start()
     {
         micCalibration.gameObject.SetActive(false);
+        micTest.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,6 +62,12 @@ public class IntroScreen : MonoBehaviour
                     micCalibration.gameObject.SetActive(true);
 
                     devices = Microphone.devices;
+
+                    if(devices.Length == 0)
+                    {
+                        state = IntroState.NoMic;
+                        break;
+                    }
 
                     micChoice.AddOptions(new List<string>(devices));
 
@@ -94,10 +104,15 @@ public class IntroScreen : MonoBehaviour
                 break;
             case IntroState.MicCalibration:
 
-                calTimer += Time.deltaTime;
+                
 
                 calValue = Calibrate(currentDevice);
                 slider.value = calValue;
+                
+                if (calValue > 0.1f)
+                {
+                    calTimer += Time.deltaTime;
+                }
 
                 if (calValue > loudestVolume)
                 {
@@ -106,13 +121,49 @@ public class IntroScreen : MonoBehaviour
 
                 if(calTimer > 3)
                 {
-                    state = IntroState.TitleScreen;
+                    state = IntroState.MicTest;
+                    micTest.gameObject.SetActive(true);
+                    header.text = "Test mic\nIt should be green when laughing";
+
+                    loudestVolume /= 2;
+                    
+                    clickToContinue.gameObject.SetActive(true);
                 }
 
                 break;
-            case IntroState.TitleScreen:
+            case IntroState.MicTest:
 
+                calValue = Calibrate(currentDevice);
+                slider.value = calValue;
 
+                if(calValue >= loudestVolume)
+                {
+                    micTest.color = Color.green;
+                }
+                else
+                {
+                    micTest.color = Color.white;
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    PlayerPrefs.SetFloat("LaughCutoff", loudestVolume);
+                    PlayerPrefs.SetInt("DeviceIndex", micChoice.value);
+
+                    SceneManager.LoadScene("Title");
+                }
+
+                break;
+            case IntroState.NoMic:
+
+                header.text = "NO MICROPHONE DETECTED";
+
+                footer.text = "Please plug a microphone in";
+
+                if(Microphone.devices.Length > 0)
+                {
+                    SceneManager.LoadScene("Intro");
+                }
 
                 break;
         }
