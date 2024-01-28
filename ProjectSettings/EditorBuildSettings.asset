@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lara.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: ceb2669857e7af941a037a2640b0fd2b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 831deb9774593684c9b8b13251391efd
   m_configObjects: {}
