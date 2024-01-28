@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(AudioSource))]
 public class Sanity : MonoBehaviour
 {
     public static Sanity Instance;
@@ -20,6 +21,8 @@ public class Sanity : MonoBehaviour
 
     [SerializeField] bool debugDisableMicrophone = false;
     [SerializeField] bool debugDontDeplete = false;
+    AudioSource audioSource;
+    [SerializeField] float hellPitch = 0.1f;
 
     float _value = 1f; // 0.0 to 1.0
     public float Value { 
@@ -69,6 +72,7 @@ public class Sanity : MonoBehaviour
 
     void Start() {
         gun = GameObject.FindGameObjectWithTag("PlayerCamTransform").GetComponentInChildren<Gun>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void UpdateUI() {
@@ -90,6 +94,15 @@ public class Sanity : MonoBehaviour
         else
         {
             Value -= Time.deltaTime * firstTimeDrainSpeed;
+        }
+
+        if(sceneSwitch.IsHappy)
+        {
+            audioSource.pitch = 1.0f;
+        }
+        else
+        {
+            audioSource.pitch = hellPitch;
         }
 
         // if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
