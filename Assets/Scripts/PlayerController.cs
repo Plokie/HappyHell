@@ -69,4 +69,12 @@ public class PlayerController : MonoBehaviour
         
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    void OnTriggerEnter(Collider other) {
+        // print("Enter trigger "+other.gameObject.name);
+        IPickup iPickup = other.gameObject.GetComponent<IPickup>();
+        if(iPickup!=null) {
+            iPickup.OnPickup();
+        }
+    }
 }
