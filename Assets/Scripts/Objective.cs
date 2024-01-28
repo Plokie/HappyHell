@@ -18,6 +18,7 @@ public class ObjectiveQuest
     public string text;
     public string id;
     public GameObject instantiatedPointer = null;
+    public bool isComplete = false;
 
     public Type typeArg;
     public System.Func<bool> isCompletedQuery;
@@ -137,11 +138,18 @@ public class Objective : MonoBehaviour
     }
 
     Transform playerCam;
+    [SerializeField] ObjectivePointer pointerPrefab;
 
     private void Start()
     {
         playerCam = GameObject.FindGameObjectWithTag("PlayerCamTransform").transform;
     }
+
+    void CreateObjectivePointer(ObjectiveQuest quest)
+    {
+        quest.instantiatedPointer = Instantiate(pointerPrefab, transform).gameObject;
+    }
+
 
     void Update() {
         if(currentQuests.Count == 0 && queuedQuests.Count > 0) {
@@ -154,12 +162,14 @@ public class Objective : MonoBehaviour
             if(quest.instantiatedPointer==null && quest.objectiveType != ObjectiveType.MeetQuery)
             {
                 //Instantiate the pointer ui
+                CreateObjectivePointer(quest);
             }
 
 
             if(quest.isCompletedQuery())
             {
                 //Destroy the pointer ui
+                Destroy(quest.instantiatedPointer);
                 Instance.currentQuests.Remove(quest);
             }
             else if(quest.objectiveType != ObjectiveType.MeetQuery)
@@ -194,7 +204,7 @@ public class Objective : MonoBehaviour
                     break;
                 }
 
-
+                quest.targetPosition = targetPosition;
                 
             }
         }
