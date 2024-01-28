@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[Serializable]
 public enum ObjectiveType
 {
     None, NearestObjectOfType, MeetQuery
 }
 
+[Serializable]
 public class ObjectiveQuest
 {
     public ObjectiveType objectiveType = ObjectiveType.None;
