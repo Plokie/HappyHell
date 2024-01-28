@@ -177,7 +177,7 @@ public class Objective : MonoBehaviour
                             Transform objTransform = obj.GetComponent<Transform>();
                             if (objTransform != null)
                             {
-                                float dist = Vector3.Distance(objTransform.position, )
+                                //float dist = Vector3.Distance(objTransform.position, )
 
                             }
 
