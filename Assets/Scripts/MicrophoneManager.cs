@@ -60,7 +60,10 @@ public class MicrophoneManager : MonoBehaviour
     void Update() {
         isLaughing = CheckForLaugh();
 
-        micActivityImage.color = isLaughing ? micActiveColor : micInactiveColor;
+        if (micActivityImage != null)
+        {
+            micActivityImage.color = isLaughing ? micActiveColor : micInactiveColor;
+        }
     }
 
     bool CheckForLaugh()
