@@ -159,6 +159,7 @@ MonoBehaviour:
   playerSpeed: 4.57
   jumpHeight: 5.3
   gravityValue: -9.81
+  xRotation: 0
 --- !u!143 &7895825823771690407
 CharacterController:
   m_ObjectHideFlags: 0

@@ -6002,6 +6002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4232819409595080576, guid: 1dc31589eae5b39499846cc7fc807b33, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.895
+      objectReference: {fileID: 0}
     - target: {fileID: 5864574950313930142, guid: 1dc31589eae5b39499846cc7fc807b33, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -6067,7 +6071,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3946233506063394039, guid: 1dc31589eae5b39499846cc7fc807b33, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc31589eae5b39499846cc7fc807b33, type: 3}
@@ -19243,6 +19248,38 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1367977346}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_RecenterTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_HorizontalAxis.m_Wrap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_VerticalAxis.m_MaxValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_VerticalAxis.m_AccelTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_HorizontalAxis.m_MaxValue
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_HorizontalAxis.m_MinValue
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_HorizontalAxis.m_AccelTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393038142761585784, guid: 3a634d75b1fe9f847981a3e1df3229c0, type: 3}
+      propertyPath: m_HorizontalAxis.m_DecelTime
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20420,10 +20457,9 @@ MonoBehaviour:
   debugDontDeplete: 1
   visiblityParent: {fileID: 692748835}
   slider: {fileID: 506273397}
+  happyCounter: {fileID: 0}
   redBg: {fileID: 560852383}
-  micMgr: {fileID: 836823209}
   sceneSwitch: {fileID: 1771637532}
-  laughRecoverySpeed: 0.35
   drainSpeed: 0.01
   maxRandFlashChance: 100
 --- !u!1 &1900708069
@@ -22840,6 +22876,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.27
       objectReference: {fileID: 0}
+    - target: {fileID: 3633453342292982216, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633453342292982216, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3636965884922160109, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.27
@@ -22851,6 +22895,14 @@ PrefabInstance:
     - target: {fileID: 3636965884922160109, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873881046086986687, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873881046086986687, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4163847284511044992, guid: 2af7d91dc6e251d449f2e1ac27a01661, type: 3}
       propertyPath: m_AnchoredPosition.y
