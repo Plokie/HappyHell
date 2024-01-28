@@ -66,7 +66,7 @@ public class Sanity : MonoBehaviour
     [Header("Settings / Values")]
     // [SerializeField] float laughRecoverySpeed = 0.35f;
     [SerializeField] float drainSpeed = 0.01f;
-    [SerializeField] float firstTimeDrainSpeed = 0.03f;
+    [SerializeField] float firstTimeDrainSpeed = 0.005f;
     [SerializeField] int maxRandFlashChance = 150;
     Gun gun;
 
@@ -93,7 +93,7 @@ public class Sanity : MonoBehaviour
         }
         else
         {
-            Value -= Time.deltaTime * firstTimeDrainSpeed;
+            Value -= Time.deltaTime * firstTimeDrainSpeed * ((gun.Ammo <= 0.0f && Value > 0.5f) ? 30f : 1f);
         }
 
         if(sceneSwitch.IsHappy)

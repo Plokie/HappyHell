@@ -78,7 +78,16 @@ public class Gun : MonoBehaviour
             sys.Emit(1);
         }
 
+        float oldAmmo = Ammo;
         Ammo -= ammoDepletionRate * Time.fixedDeltaTime;
+
+        if(oldAmmo > 0f && Ammo <=0f) {
+            print("Ammo hit 0");
+            Objective.AddObjective("ammo", "Nearest gas", typeof(CanisterPickup), () =>
+            {
+                return Ammo > 0.1f;
+            });
+        }
     }
 
     void FixedUpdate()
