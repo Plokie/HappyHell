@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] GunScriptableObject currentGun;
     [SerializeField] MicrophoneManager micMgr;
+    [SerializeField] Transform playerLook;
 
     float ammo = 1f;
 
@@ -67,6 +68,21 @@ public class Gun : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector3 targetDir = currentHellGunPrefab.firePoint.forward;
+
+        RaycastHit hit;
+        if(Physics.Raycast(playerLook.position, playerLook.forward, out hit, 100f)) {
+            Vector3 dirToLookPos = (hit.point - currentHellGunPrefab.firePoint.position).normalized;
+            
+            float dotDiff = Vector3.Dot(dirToLookPos, currentHellGunPrefab.firePoint.forward);
+
+            if(dotDiff > 0.5f) {
+                targetDir = dirToLookPos;
+            }
+        }
+
+        currentHellParticleSystem.transform.forward = targetDir;
+        currentHappyParticleSystem.transform.forward = targetDir;
 
         if(Input.GetKey(KeyCode.Mouse0))
         {

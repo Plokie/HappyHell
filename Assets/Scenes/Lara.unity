@@ -441,7 +441,9 @@ MonoBehaviour:
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
+  m_BeforeStackBundles:
+  - assemblyQualifiedName: PostProcessOutline, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_AfterStackBundles: []
 --- !u!1001 &12632597
 PrefabInstance:
@@ -651,7 +653,9 @@ MonoBehaviour:
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
+  m_BeforeStackBundles:
+  - assemblyQualifiedName: PostProcessOutline, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_AfterStackBundles: []
 --- !u!1001 &26400575
 PrefabInstance:
@@ -17470,7 +17474,9 @@ MonoBehaviour:
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
+  m_BeforeStackBundles:
+  - assemblyQualifiedName: PostProcessOutline, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_AfterStackBundles: []
 --- !u!1 &1431448206
 GameObject:
@@ -20141,7 +20147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: a7e1fde1f0c190b4981a022a02c038a6, type: 2}
   isGlobal: 1
-  blendDistance: 0
+  blendDistance: 17.83
   weight: 1
   priority: 0
 --- !u!4 &1720579332
@@ -20152,7 +20158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720579330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.338285, y: -0.5403938, z: 4.1813374}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24029,6 +24035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGun: {fileID: 11400000, guid: 327fd8fa33dd93f42827e41c6d5381c3, type: 2}
   micMgr: {fileID: 836823209}
+  playerLook: {fileID: 391832169}
 --- !u!4 &5337313632744143555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1451400852686721976, guid: 9d9957d7280d7aa45901636df655e404, type: 3}

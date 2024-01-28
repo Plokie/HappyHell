@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 2536677855812602408}
+  - {fileID: 7165103658868935297}
 --- !u!114 &2536677855812602408
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1325,3 +1326,55 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &7165103658868935297
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa2ce31524004049b548a2cd57a2f81, type: 3}
+  m_Name: PostProcessOutline
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  scale:
+    overrideState: 1
+    value: 1
+  depthThreshold:
+    overrideState: 1
+    value: 5.82
+  normalThreshold:
+    overrideState: 1
+    value: 0.312
+  depthNormalThreshold:
+    overrideState: 1
+    value: 0.962
+  depthNormalThresholdScale:
+    overrideState: 1
+    value: 8.92
+  darkLuminanceOffset:
+    overrideState: 1
+    value: 0.8
+  edgeColor:
+    overrideState: 1
+    value: {r: 1, g: 0.75, b: 0.8231523, a: 1}
+  backgroundColor:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+  darkEdgeColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  darkBackgroundColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  skyColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  lightMode:
+    overrideState: 0
+    value: 0

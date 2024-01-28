@@ -69,7 +69,7 @@ public class Sanity : MonoBehaviour
     void Update() {
         if(debugDontDeplete) return;
         
-        Value -= Time.deltaTime * drainSpeed;
+        Value -= Time.deltaTime * drainSpeed * ((Value<0.5f)?0.5f:1f);
 
         // if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
         //     Value += Time.deltaTime * laughRecoverySpeed;
