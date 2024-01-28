@@ -23645,7 +23645,7 @@ MonoBehaviour:
   redBg: {fileID: 560852383}
   sceneSwitch: {fileID: 1771637532}
   drainSpeed: 0.025
-  firstTimeDrainSpeed: 0.005
+  firstTimeDrainSpeed: 0.01
   maxRandFlashChance: 100
 --- !u!114 &1891934146
 MonoBehaviour:

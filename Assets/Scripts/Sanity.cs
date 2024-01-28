@@ -105,6 +105,8 @@ public class Sanity : MonoBehaviour
             audioSource.pitch = hellPitch;
         }
 
+
+
         // if(micMgr.isLaughing && hasBeenSaneForFirstTime && !debugDisableMicrophone) {
         //     Value += Time.deltaTime * laughRecoverySpeed;
         // }
@@ -113,6 +115,14 @@ public class Sanity : MonoBehaviour
         if(_prevSanity > 0.8f && Value < 0.8f) { // force a flash at the 0.7f mark
             sceneSwitch.FlashHellForTime(0.05f);
             print("cross 0.8f");
+        }
+
+        if (_prevSanity > 0.2f && Value < 0.2f)
+        { // force a flash at the 0.7f mark
+            Objective.AddObjective("nearestnpc", "Nearest person", typeof(NPC), () =>
+            {
+                return Value > 0.25f;
+            });
         }
 
         sceneSwitch.IsHappy = Value > 0.5f;
