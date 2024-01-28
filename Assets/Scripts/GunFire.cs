@@ -6,18 +6,16 @@ public class GunFire : MonoBehaviour
 {
     [SerializeField] ParticleSystem sys;
 
-    List<ParticleCollisionEvent> collisionEvents;
+    List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     void OnParticleCollision(GameObject other) {
         IShootable iShootable = other.GetComponent<IShootable>();
         if(iShootable!=null) {
-            
             int numCollisions = sys.GetCollisionEvents(other, collisionEvents);
-            
-            print("Shot "+numCollisions);
-            // for(int i=0; i<numCollisions; i++) {
-            //     iShootable.BeingShot();
-            // }
+
+            for(int i=0; i<numCollisions; i++) {
+                iShootable.BeingShot();
+            }
         
         
         }

@@ -756,6 +756,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC1
       objectReference: {fileID: 0}
+    - target: {fileID: 6336311913742715298, guid: bb04087f51764514595050ab79d957eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336311913742715298, guid: bb04087f51764514595050ab79d957eb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7137658529619090934, guid: bb04087f51764514595050ab79d957eb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -800,10 +808,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8747997134200698439, guid: bb04087f51764514595050ab79d957eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747997134200698439, guid: bb04087f51764514595050ab79d957eb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1840901922854728541, guid: bb04087f51764514595050ab79d957eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1517064174}
   m_SourcePrefab: {fileID: 100100000, guid: bb04087f51764514595050ab79d957eb, type: 3}
 --- !u!4 &80982875 stripped
 Transform:
@@ -17742,6 +17761,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 726b544c68478564d8672118c87a0884, type: 3}
   m_PrefabInstance: {fileID: 1502543242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1517064171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1840901922854728541, guid: bb04087f51764514595050ab79d957eb, type: 3}
+  m_PrefabInstance: {fileID: 70876613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1517064174
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517064171}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.37
+  m_Height: 1.78
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!1001 &1520823892
 PrefabInstance:
   m_ObjectHideFlags: 0

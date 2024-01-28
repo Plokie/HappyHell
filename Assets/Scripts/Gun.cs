@@ -16,9 +16,6 @@ public class Gun : MonoBehaviour
 
     List<GameObject> _instantiatedObjects = new List<GameObject>();
 
-
-    List<GameObject> _shootableObjects = new List<GameObject>(); //bad but its a game jam so who cares
-
     public void SetGun(GunScriptableObject newGun) {
         currentGun = newGun;
         Setup();
@@ -38,19 +35,6 @@ public class Gun : MonoBehaviour
     void Start()
     {
         Setup();
-
-        // slow and bad but again, is a game jam, should be fine
-        // plus its only on start
-        foreach(Transform objTransform in FindObjectsOfType<Transform>()) {
-            
-            
-
-            IShootable iShootable = objTransform.GetComponent<IShootable>();
-            if(iShootable!=null) {
-                _shootableObjects.Add(objTransform.gameObject);
-                // print("Add "+objTransform.gameObject.name);
-            }
-        }
     }
 
     void Setup() {
@@ -79,25 +63,6 @@ public class Gun : MonoBehaviour
         foreach(ParticleSystem sys in particleChildren) {
             sys.Emit(1);
         }
-
-
-        // Vector3 fireDir = transform.parent.forward;
-        // foreach(GameObject shootableObj in _shootableObjects) {
-        //     if(Vector3.Distance(shootableObj.transform.position, transform.parent.position) > currentGun.range) continue;
-
-        //     Vector3 targetDir = (shootableObj.transform.position - transform.parent.position).normalized;
-
-        //     float dot = Vector3.Dot(fireDir, targetDir);
-        //     float angleDot = 1f - Mathf.Clamp01(dot);
-
-        //     // print(dot + " " + angleDot);
-
-        //     if(angleDot < currentGun.spreadRange) {
-        //         print("Shot " + shootableObj.name);
-
-                
-        //     }
-        // }
     }
 
     void Update()
@@ -107,8 +72,6 @@ public class Gun : MonoBehaviour
         {
             Fire();
         }
-
-        // print(micMgr.CheckForLaugh());
         
     }
 }
