@@ -45,6 +45,12 @@ public class Tutorial : MonoBehaviour
             return timer > 4;
         });
 
+        // leave at end
+        Objective.QueueObjective("Final", "Nearest Person", typeof(NPC), () =>
+        {
+            return false;
+        });
+
     }
 
     void Update()
