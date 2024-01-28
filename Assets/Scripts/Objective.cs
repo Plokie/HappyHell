@@ -174,7 +174,7 @@ public class Objective : MonoBehaviour
             }
             else if(quest.objectiveType != ObjectiveType.MeetQuery)
             {
-                Vector3 targetPosition = Vector3.zero;
+                Vector3 targetPosition = quest.targetPosition;
                 
                 switch(quest.objectiveType)
                 {

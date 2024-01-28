@@ -18,6 +18,9 @@ public class ObjectivePointer : MonoBehaviour
 
     private void Update()
     {
-        
+        Vector3 targetDir = (myQuest.targetPosition - playerCam.position).normalized;
+        float angle = Vector3.Angle(playerCam.forward, targetDir);
+
+        pointerPivot.localEulerAngles.Set(0, 0, angle);
     }
 }
