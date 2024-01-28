@@ -15,6 +15,8 @@ public class GameOver : MonoBehaviour
     {
         winState.text = PlayerPrefs.GetInt("WinState") == 0 ? "You Win!!!" : "You Lose";
         winTime.text = "Time: " + PlayerPrefs.GetFloat("Time").ToString();
+
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Retry()
