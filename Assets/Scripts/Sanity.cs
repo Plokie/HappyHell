@@ -43,8 +43,6 @@ public class Sanity : MonoBehaviour
             _happyTasksComplete = value;
 
             happyCounter.text = _happyTasksComplete.ToString();
-
-            // update counter
         }
     }
 
@@ -55,7 +53,7 @@ public class Sanity : MonoBehaviour
     [SerializeField] Image redBg;
     [SerializeField] SceneSwitch sceneSwitch;
     [Header("Settings / Values")]
-    [SerializeField] float laughRecoverySpeed = 0.35f;
+    // [SerializeField] float laughRecoverySpeed = 0.35f;
     [SerializeField] float drainSpeed = 0.01f;
     [SerializeField] int maxRandFlashChance = 150;
 
@@ -105,6 +103,8 @@ public class Sanity : MonoBehaviour
 
     public void RegisterKill() {
         if(!hasBeenSaneForFirstTime) return; // Only start increasing if the player has seen hell already
+
+        print("Register kill");
 
         // Value += 0.4f;
         Value = 1f;
