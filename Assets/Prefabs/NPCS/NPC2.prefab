@@ -3059,8 +3059,8 @@ MonoBehaviour:
   healthBar: {fileID: 829885151984929195}
   happyBar: {fileID: 4506862978063379557}
   Alive: 1
-  baseDamage: 5
-  laughingMultiplier: 5
+  baseDamage: 2
+  laughingMultiplier: 15
 --- !u!136 &5656598602032524864
 CapsuleCollider:
   m_ObjectHideFlags: 0
