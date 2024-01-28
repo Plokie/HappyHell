@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour, IShootable
     public Animator npcHappy, npcHell;
     public Slider healthBar, happyBar;
     public bool Alive = true;
+    Collider coll;
 
     float Health = 100;
 
@@ -26,7 +27,7 @@ public class NPC : MonoBehaviour, IShootable
 
     void Start()
     {
-        
+        coll = GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -42,6 +43,7 @@ public class NPC : MonoBehaviour, IShootable
         if (Health <= 0)
         {
             Alive = false;
+            coll.enabled=false;
         }
 
     }

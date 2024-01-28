@@ -56,7 +56,7 @@ public class Gun : MonoBehaviour
 
     void Fire()
     {
-        currentHellParticleSystem.Emit(1);
+        currentHellParticleSystem.Emit(4);
         currentHappyParticleSystem.Emit(1);
 
         ParticleSystem[] particleChildren = currentHappyParticleSystem.GetComponentsInChildren<ParticleSystem>();
@@ -65,7 +65,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         if(Input.GetKey(KeyCode.Mouse0))
