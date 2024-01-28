@@ -190,9 +190,13 @@ public class Objective : MonoBehaviour
 
                         var arr = GameObject.FindObjectsOfType(quest.typeArg); //slow and bad but MEH game jam innit
                         foreach (var obj in arr) {
+
+
                             Transform objTransform = obj.GetComponent<Transform>();
                             if (objTransform != null)
                             {
+                                if (quest.id == "nearestnpc" && !objTransform.gameObject.GetComponent<NPC>().Alive) continue;
+
                                 float dist = Vector3.Distance(objTransform.position, playerCam.position);
                                 if(dist < nearestDist) {
                                     nearestDist = dist;
