@@ -11,7 +11,7 @@ https://github.com/zylonity
 https://github.com/wildmonkeydan
 
 ## Building
-Its just a Unity project!
+Its just a Unity project! Made in Unity version 2022.2.2f
 
 ## License
 See https://github.com/Plokie/HappyHell/blob/master/LICENSE
